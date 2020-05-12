@@ -13,19 +13,26 @@ with open(r'D:\python3\健康打卡\data.yml', encoding='utf-8')as fp_stream:
 
 @paramunittest.parametrized(*datalist)
 class CdutHealth(unittest.TestCase):
-    def setParameters(self, user, pwd, province=None, city=None, county=None, address=None, messageType=1):
+    def setParameters(self, user, pwd, province=None, city=None, county=None, address=None, SCKEY=None,
+                      mail_address=None, zzmm='团员', FDY=None, mentor=None, parent=None, messageType=2):
         self.username = user
         self.password = pwd
         self.province = province
         self.city = city
         self.county = county
         self.address = address
+        self.SCKEY = SCKEY
+        self.Mail_address = mail_address
+        self.zzmm = zzmm
+        self.FDY = FDY
+        self.mentor = mentor
+        self.parent = parent
         self.messageType = messageType
 
     def setUp(self):
         # 用哪个就把另一个注释掉
-        self.driver = webdriver.Chrome('F:\Chrome Driver\chromedriver_win32\chromedriver.exe')  # 括号内为你的Chromedriver存放路径
-        # self.driver = webdriver.Edge('F:\Edge Driver\edgedriver_win64\msedgedriver.exe')       # 括号内为你的MicrosoftEdge driver存放路径
+        # self.driver = webdriver.Chrome('F:\Chrome Driver\chromedriver_win32\chromedriver.exe')  # 括号内为你的Chromedriver存放路径
+        self.driver = webdriver.Edge('F:\Edge Driver\edgedriver_win64\msedgedriver.exe')       # 括号内为你的MicrosoftEdge driver存放路径
 
     def test_python(self):
         driver = self.driver
@@ -58,21 +65,26 @@ class CdutHealth(unittest.TestCase):
             iframe2 = driver.find_element_by_xpath(
                 '/html/body/div[2]/div[2]/table/tbody/tr/td[2]/div[2]/div/iframe')  # 寻找第二个内嵌表格
             driver.switch_to.frame(iframe2)  # 切换第二个表格
+            driver.find_element_by_id('ZZMM$text').send_keys(self.zzmm)  # 政治面貌
+            driver.find_element_by_id('mini-37').click()
+            driver.find_element_by_id('FDY$text').send_keys(self.FDY)  # 辅导员名称
+            driver.find_element_by_id('DSXM$text').send_keys(self.mentor)  # 导师姓名
+            driver.find_element_by_id('JZLX$text').send_keys(self.parent)  # 父母联系方式
             driver.find_element_by_id('mini-2$0').click()  # 点击确认按钮
             print("开始寻找是否有黑龙江旅居史框")
-            driver.find_element_by_id('mini-36$ck$1').click()  # 点击否
-            print("开始寻找是否有小区隔离史")
-            driver.find_element_by_id('mini-66$ck$1').click() # 点击否
+            driver.find_element_by_id('mini-42$ck$1').click()  # 点击否
+            # print("开始寻找是否有小区隔离史")
+            # driver.find_element_by_id('mini-66$ck$1').click()  # 点击否
             print("开始寻找体温属性")
             temprature = driver.find_element_by_id('TW$text')  # 寻找体温属性
             temprature.send_keys('36.5')  # 输入体温
             print('填写当前地址')
             driver.find_element_by_id('SSQ21$text').send_keys(self.province)  # 填写省
-            driver.find_element_by_id('mini-49').click()  # 点击下拉栏
+            driver.find_element_by_id('mini-56').click()  # 点击下拉栏
             driver.find_element_by_id('SSQ22$text').send_keys(self.city)  # 填写市
-            driver.find_element_by_id('mini-53').click()  # 点击市的下拉栏
+            driver.find_element_by_id('mini-60').click()  # 点击市的下拉栏
             driver.find_element_by_id('SSQ23$text').send_keys(self.county)
-            driver.find_element_by_id('mini-57').click()  # 点击县的下拉栏
+            driver.find_element_by_id('mini-64').click()  # 点击县的下拉栏
             driver.find_element_by_id('SZDXXDZ$text').send_keys(self.address)
             driver.switch_to.default_content()  # 切换回顶层表单
             driver.switch_to.frame(iframe1)  # 切换为第一层表单
