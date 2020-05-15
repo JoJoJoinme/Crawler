@@ -65,12 +65,20 @@ class CdutHealth(unittest.TestCase):
             iframe2 = driver.find_element_by_xpath(
                 '/html/body/div[2]/div[2]/table/tbody/tr/td[2]/div[2]/div/iframe')  # 寻找第二个内嵌表格
             driver.switch_to.frame(iframe2)  # 切换第二个表格
-            driver.find_element_by_id('ZZMM$text').send_keys(self.zzmm)  # 政治面貌
-            driver.find_element_by_id('mini-37').click()
-            driver.find_element_by_id('FDY$text').send_keys(self.FDY)  # 辅导员名称
-            driver.find_element_by_id('DSXM$text').send_keys(self.mentor)  # 导师姓名
-            driver.find_element_by_id('JZLX$text').send_keys(self.parent)  # 父母联系方式
             driver.find_element_by_id('mini-2$0').click()  # 点击确认按钮
+            zzmm = driver.find_element_by_xpath('//*[@id="ZZMM$value"]').get_attribute('value')
+            if zzmm is None:
+                driver.find_element_by_id('ZZMM$text').clear()  # 政治面貌
+                driver.find_element_by_id('ZZMM$text').send_keys(self.zzmm)
+                driver.find_element_by_id('mini-37').click()
+                driver.find_element_by_id('FDY$text').clear()
+                driver.find_element_by_id('FDY$text').send_keys(self.FDY)  # 辅导员名称
+                driver.find_element_by_id('DSXM$text').clear()
+                driver.find_element_by_id('DSXM$text').send_keys(self.mentor)  # 导师姓名
+                driver.find_element_by_id('JZLX$text').clear()
+                driver.find_element_by_id('JZLX$text').send_keys(self.parent)  # 父母联系方式
+            else:
+                pass
             print("开始寻找是否有黑龙江旅居史框")
             driver.find_element_by_id('mini-42$ck$1').click()  # 点击否
             # print("开始寻找是否有小区隔离史")
@@ -96,6 +104,7 @@ class CdutHealth(unittest.TestCase):
             print('Another test')
 
         except Exception as e:
+            print(e)
             if self.messageType == 1:
                 ft.sendft()
             else:
