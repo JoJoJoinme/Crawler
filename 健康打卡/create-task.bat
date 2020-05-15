@@ -1,3 +1,4 @@
+REM https://docs.microsoft.com/zh-cn/windows/win32/taskschd/schtasks
 @ECHO OFF
 %~d0
 cd %~dp0
