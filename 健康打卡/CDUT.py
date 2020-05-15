@@ -7,7 +7,7 @@ import paramunittest
 import yaml
 
 # 将括号内的地址修改为你的data.yml存放地址
-with open(r'D:\python3\健康打卡\data.yml', encoding='utf-8')as fp_stream:
+with open(r'path\to\your\data.yml', encoding='utf-8')as fp_stream:
     datalist = yaml.load(fp_stream, Loader=yaml.FullLoader)
 
 
@@ -32,7 +32,7 @@ class CdutHealth(unittest.TestCase):
     def setUp(self):
         # 用哪个就把另一个注释掉
         # self.driver = webdriver.Chrome('F:\Chrome Driver\chromedriver_win32\chromedriver.exe')  # 括号内为你的Chromedriver存放路径
-        self.driver = webdriver.Edge('F:\Edge Driver\edgedriver_win64\msedgedriver.exe')       # 括号内为你的MicrosoftEdge driver存放路径
+        self.driver = webdriver.Edge(r"\path\to\your\driver.exe")       # 括号内为你的MicrosoftEdge driver存放路径
 
     def test_python(self):
         driver = self.driver
