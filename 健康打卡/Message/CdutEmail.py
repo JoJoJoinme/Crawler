@@ -2,13 +2,20 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 
-mail_host = 'smtp.163.com'
-mail_user = 'cduthealth'
-mail_pass = 'BZFZTEXYFTJVDRXH'
+# mail_host = 'smtp.163.com'
+# mail_user = 'cduthealth'
+# mail_pass = 'BZFZTEXYFTJVDRXH'
 
 
-sender = 'cduthealth@163.com'
-receivers = ['在此输入你的邮箱']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱，注意用单引号括起来
+mail_host = 'smtp.qq.com'
+mail_user = 'helious.wu@foxmail.com'
+mail_pass = 'lwxidhrkfrusgdgb'
+
+
+
+# sender = 'cduthealth@163.com'
+sender = 'helious.wu@foxmail.com'
+receivers = ['1419069126@qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱，注意用单引号括起来
 
 html_text = """
 <p>健康打卡因意外而执行错误,请手动执行打卡。待作者更新后可重新拉取代码</p>

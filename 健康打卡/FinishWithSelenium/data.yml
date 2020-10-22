@@ -1,0 +1,15 @@
+- user: '201701010101'  # 填上你的学号
+  pwd: '123456789'  # 填上你的学校VPN密码，可登录'https://authserver.cdut.edu.cn/authserver/login?service=https%3A%2F%2Fehall.cdut.edu.cn%3A443%2Flogin%3Fservice%3Dhttps%3A%2F%2Fehall.cdut.edu.cn%2Fnew%2Findex.html’修改
+  province: '四川省'  # 填上你的当前所在省份
+  city: '成都市'   # 填上你的当前所在市
+  county: '成华区'  # 填上你的所在县
+  address: '某某小区某某栋'  # 填上你的详细小区地址
+  SCKEY: 'xxxxx' # 方糖的SCKEY（选填)
+  mail_address: '邮箱账号'  # 邮箱地址
+  zzmm: '党员'  # 证明面貌包含[党员，预备党员，团员，群众],按实际情况填写
+  FDY: 'xxx'  # 辅导员姓名
+  mentor: '无'  # 导师姓名
+  parent: 'xxxxx'  # 父母的姓名，称谓，联系方式。用逗号分隔
+  messageType: 1  # 1代表方糖推送，2代表邮件推送。二选一即可。
+# 按格式写多人信息
+#- user: ‘xxxxx’
