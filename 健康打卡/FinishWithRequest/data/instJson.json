@@ -1,0 +1,19 @@
+{
+  "id": "",
+  "wfInfoId": "4af305b270435b4801704c0c9eba007d",
+  "barCode": "",
+  "secLevle": "普通",
+  "urgentLevel": "普通",
+  "title": "学生健康情况登记",
+  "makeCopy": "",
+  "flow": "",
+  "checkFlow": "",
+  "formId": "4af305b270435b4801704c0c9e250054",
+  "tStatus": "send",
+  "tType": "pub",
+  "ifArchive": "0",
+  "flowJson": "",
+  "auditJson": "[]",
+  "correlation": "",
+  "uniqueIdentify": ""
+}

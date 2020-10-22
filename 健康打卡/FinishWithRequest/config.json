@@ -1,0 +1,12 @@
+[
+  {
+    "username": "学号",
+    "pwd": "密码",
+    "SCKEY":"方糖的密钥（选填）",
+    "email": "邮箱地址和SCKEY选填",
+    "messageType": "1代表邮箱提醒，2代表微信",
+    "province":"当前所在省份",
+    "city": "当前所在城市",
+    "county": "县城"
+  }
+]
